@@ -11,6 +11,7 @@ git pull
 git config --global user.email "francis.poku@tiacloud.io"
 git config --global user.name "tiacloud-gh"
 
+home=$(pwd)
 filename="$username-lab"
 j2_template="templates/lab"
 key='username'
@@ -18,7 +19,7 @@ value=$username
 
 CONFIG_FILE="$j2_template.j2"
 # Path to the output file
-OUTPUT_FILE="lab_yaml_files/$filename.yaml"
+OUTPUT_FILE="$home/lab_yaml_files/$filename.yaml"
 
 # cd templates
 # pwd
