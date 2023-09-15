@@ -2,6 +2,16 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: xebia-labs
+
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJ0aWFjbG91ZGNvbnJlZ2Rldi5henVyZWNyLmlvIjp7InVzZXJuYW1lIjoiZGMxMjliNDUtZWQ1Ny00YWZhLWI2MTItYmM0ZTRiODAzMjRjIiwicGFzc3dvcmQiOiJSdlM4UX50TXdXU2pUSnIxWWRlb0s2VlJnSmN2LkYwMFZzS0x6Y3NMIiwiYXV0aCI6IlpHTXhNamxpTkRVdFpXUTFOeTAwWVdaaExXSTJNVEl0WW1NMFpUUmlPREF6TWpSak9sSjJVemhSZm5STmQxZFRhbFJLY2pGWlpHVnZTelpXVW1kS1kzWXVSakF3Vm5OTFRIcGpjMHc9In19fQ==
+kind: Secret
+metadata:
+  name: acrcred-dev
+  namespace: xebia-labs
+type: kubernetes.io/dockerconfigjson
 ---
 apiVersion: apps/v1
 kind: Deployment
