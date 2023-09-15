@@ -20,8 +20,8 @@ CONFIG_FILE="$j2_template.j2"
 # Path to the output file
 OUTPUT_FILE="lab_yaml_files/$filename.yaml"
 
-cd templates
-pwd
+# cd templates
+# pwd
 
 # Check if the config file exists
 if [ ! -f "$CONFIG_FILE" ]; then
