@@ -2,6 +2,7 @@
 
 # Get username and password
 read -p "Welcome to Xebia Labs, Enter your username: " username
+echo
 
 git clone https://github.com/47deg/devops_interview_labs.git #https://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@github.com/tiacloudconsult/completed-aks-cluster.git 
 cd devops_interview_labs
