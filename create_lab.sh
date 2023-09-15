@@ -208,8 +208,10 @@ if [ "$a" == "y" ]; then
         fi
     done
 
-    echo "$username Please use LoadBalancer IP: $lb_ip to login into your Xebia Lab. Your password is $username-121"
-    echo "Happy CODING :)"
+    echo "$username Please use LoadBalancer IP: $lb_ip:4545 to login into your Xebia Lab. Your password is $username-121"
+    echo
+
+    echo "HAPPY CODING :)"
 
     echo "End Time" 
     date
