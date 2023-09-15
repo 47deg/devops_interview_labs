@@ -83,14 +83,15 @@ if [ "$a" == "y" ]; then
     # Replace variables in the template and save output to a variable
     output=$(jinja2 $j2_template.j2 --format=yaml -D "$key=$value")
 
-    # Check if the output file exists
-    if [ ! -f "$OUTPUT_FILE" ]; then
-        # If the output file doesn't exist, create it and write the output to it
-        echo -e "$output" > "$OUTPUT_FILE"
-    else
-        # If the output file exists, append the output to it with three dashes separator
-        echo -e "$output" >> "$OUTPUT_FILE"
-    fi
+    echo -e "$output" > "$OUTPUT_FILE"
+    # # Check if the output file exists
+    # if [ ! -f "$OUTPUT_FILE" ]; then
+    #     # If the output file doesn't exist, create it and write the output to it
+    #     echo -e "$output" > "$OUTPUT_FILE"
+    # else
+    #     # If the output file exists, append the output to it with three dashes separator
+    #     echo -e "$output" >> "$OUTPUT_FILE"
+    # fi
 
     # Commit the YAML to the Git repository
     echo "Committing $filename.yaml to Git..."
@@ -129,40 +130,51 @@ if [ "$a" == "y" ]; then
     else
         echo "Resource group $resource_group already exists."
     fi
-    
-    echo "Create an AKS single node cluster"
 
-    # Function to show progress
-    show_progress() {
-        local elapsed_time=0
+    echo "Checking if resource group $cluster_name exists..."
 
-        while true; do
-            echo "Creating AKS cluster... elapsed time: $elapsed_time seconds"
-            sleep 10
-            elapsed_time=$((elapsed_time + 10))
-        done
-    }
+    # Check if the resource group exists
+    cluster_exists=$(az aks list --resource-group $resource_group | jq -r --arg cluster_name "$cluster_name" '.[] | select(.name == $cluster_name) | .name')
 
-    # Start showing progress in the background
-    show_progress &
-    # Get the process ID of the background function
-    progress_pid=$!
-
-    # Create the AKS cluster
-    output=$(az aks create --resource-group $resource_group --name $cluster_name --node-count 1 --enable-addons monitoring --generate-ssh-keys --node-vm-size $vm_size --location $location 2>&1)
-    # Capture the exit status of AKS creation immediately
-    aks_create_status=$?
-
-    # Kill the background progress function as soon as AKS creation is done
-    kill $progress_pid
-
-    # Check for errors during AKS cluster creation using the captured status
-    if [ $aks_create_status -ne 0 ]; then
-        echo "Error creating AKS cluster:"
-        echo "$output"
-        exit 1
+    if [ "$cluster_exists" == "$cluster_name" ]; then
+        echo "AKS cluster $cluster_name already exists in resource group $resource_group."
     else
-        echo "AKS cluster created successfully!"
+        echo "AKS cluster $cluster_name does not exist in resource group $resource_group."
+
+        echo "Create an AKS single node cluster"
+
+        # Function to show progress
+        show_progress() {
+            local elapsed_time=0
+
+            while true; do
+                echo "Creating AKS cluster... elapsed time: $elapsed_time seconds"
+                sleep 10
+                elapsed_time=$((elapsed_time + 10))
+            done
+        }
+
+        # Start showing progress in the background
+        show_progress &
+        # Get the process ID of the background function
+        progress_pid=$!
+
+        # Create the AKS cluster
+        output=$(az aks create --resource-group $resource_group --name $cluster_name --node-count 1 --enable-addons monitoring --generate-ssh-keys --node-vm-size $vm_size --location $location 2>&1)
+        # Capture the exit status of AKS creation immediately
+        aks_create_status=$?
+
+        # Kill the background progress function as soon as AKS creation is done
+        kill $progress_pid
+
+        # Check for errors during AKS cluster creation using the captured status
+        if [ $aks_create_status -ne 0 ]; then
+            echo "Error creating AKS cluster:"
+            echo "$output"
+            exit 1
+        else
+            echo "AKS cluster created successfully!"
+        fi
     fi
 
     # Get the AKS cluster credentials
