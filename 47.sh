@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Get username and password
+read -p "Welcome to Xebia Labs, Enter your username: " username
+
 git clone https://github.com/47deg/devops_interview_labs.git #https://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@github.com/tiacloudconsult/completed-aks-cluster.git 
 cd devops_interview_labs
 git checkout main
@@ -7,10 +10,6 @@ git fetch
 git pull
 git config --global user.email "francis.poku@tiacloud.io"
 git config --global user.name "tiacloud-gh"
-
-
-# Get username and password
-read -p "Welcome to Xebia Labs, Enter your username: " username
 
 filename="$username-lab"
 j2_template="templates/lab"
@@ -53,8 +52,9 @@ else
     exit 1
 fi
 
-# # Commit the YAML to the Git repository
-# echo "Committing YAML to Git..."
-# git add secret.yaml
-# git commit -m "Added secret for $clusterName"
-# git push
+# Commit the YAML to the Git repository
+echo "Committing $filename.yaml to Git..."
+git add .
+git commit -m "Added $filename.yaml to xebia lab"
+git pull
+git push
