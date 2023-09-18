@@ -14,7 +14,7 @@ read -p "Do you want to delete AKS or User's Lab? (aks/lab): " a
 if [ "$a" == "aks" ]; then
 
     echo 
-
+    
     # Define the Azure subscription id, resource group name, Key Vault name, and the service principle name
     subscription_id="46081af3-7258-44cd-899c-db7516f0a121"
 
@@ -97,7 +97,7 @@ if [ "$a" == "aks" ]; then
             rm -rf $OUTPUT_FILE
             echo "Committing $filename.yaml to Git..."
             git add .
-            git commit -m "Deleted $filename.yaml to xebia lab"
+            git commit -m "Deleted $filename.yaml from xebia lab"
             git pull
             git push
         fi
@@ -178,7 +178,7 @@ else
     rm -rf $OUTPUT_FILE
     echo "Committing $filename.yaml to Git..."
     git add .
-    git commit -m "Deleted $filename.yaml to xebia lab"
+    git commit -m "Deleted $filename.yaml from xebia lab"
     git pull
     git push
 
