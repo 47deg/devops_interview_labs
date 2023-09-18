@@ -5,11 +5,12 @@ date
 
 # Create an AKS single node cluster
 resource_group="argocd-dev-eus-rg-2"  # Replace with your resource group
-cluster_name="$username-xebia-lab"  # Replace with desired cluster name
+cluster_name="guille-xebia-lab"  # Replace with desired cluster name
 location="uksouth"  # Replace with your location
 
 
 read -p "Do you want to delete AKS or User's Lab? (aks/lab): " a
+
 if [ "$a" == "aks" ]; then
 
     echo 
@@ -71,17 +72,34 @@ if [ "$a" == "aks" ]; then
         # Try to delete the AKS cluster
         output=$(az aks delete --resource-group "$resource_group" --name "$cluster_name" --yes --no-wait 2>&1)
         # Capture the exit status of AKS creation immediately
-        aks_create_status=$?
+        aks_delete_status=$?
 
         # Kill the background progress function as soon as AKS creation is done
         kill $progress_pid
 
-        if [ $aks_create_status -ne 0 ]; then
+        if [ $aks_delete_status -ne 0 ]; then
             echo "Error Deleting AKS cluster:"
             echo "$output"
             exit 1
         else
             echo "AKS cluster Deleted successfully!"
+            git clone https://github.com/47deg/devops_interview_labs.git #https://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@github.com/tiacloudconsult/completed-aks-cluster.git 
+            cd devops_interview_labs
+            git checkout main
+            git fetch
+            git pull
+            git config --global user.email "francis.poku@tiacloud.io"
+            git config --global user.name "tiacloud-gh"
+
+            home=$(pwd)
+            filename="$username-lab"
+            OUTPUT_FILE="$home/lab_yaml_files/$filename.yaml"
+            rm -rf $OUTPUT_FILE
+            echo "Committing $filename.yaml to Git..."
+            git add .
+            git commit -m "Deleted $filename.yaml to xebia lab"
+            git pull
+            git push
         fi
     else
         echo "AKS cluster $cluster_name does not exist in resource group $resource_group."
@@ -93,6 +111,8 @@ else
     read -p "Welcome to Xebia Labs, Enter user's name: " username
     echo
 
+    resource_group="argocd-dev-eus-rg-2"  # Replace with your resource group
+    cluster_name="$username-xebia-lab" 
     # Define the Azure subscription id, resource group name, Key Vault name, and the service principle name
     subscription_id="46081af3-7258-44cd-899c-db7516f0a121"
 
@@ -128,7 +148,7 @@ else
     fi
     # Get the AKS cluster credentials
     echo "Retrieving AKS cluster credentials..."
-    output=$(az aks get-credentials --resource-group $resource_group --name $cluster_name 2>&1)
+    output=$(yes | az aks get-credentials --resource-group $resource_group --name $cluster_name 2>&1)
 
     # Check for errors while retrieving credentials
     if [ $? -ne 0 ]; then
@@ -155,6 +175,12 @@ else
 
     echo "Deleting $username's Lab..."
     kubectl delete -f $OUTPUT_FILE
+    rm -rf $OUTPUT_FILE
+    echo "Committing $filename.yaml to Git..."
+    git add .
+    git commit -m "Deleted $filename.yaml to xebia lab"
+    git pull
+    git push
 
     echo
     echo "lab Deleted, thank you!!"
