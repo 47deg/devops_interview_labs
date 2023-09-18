@@ -83,8 +83,7 @@ if [ "$a" == "aks" ]; then
             exit 1
         else
             echo "AKS cluster Deleted successfully!"
-            git clone https://github.com/47deg/devops_interview_labs.git #https://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@github.com/tiacloudconsult/completed-aks-cluster.git 
-            cd devops_interview_labs
+            git clone https://github.com/47deg/devops_interview_labs.git 
             git checkout main
             git fetch
             git pull
@@ -159,9 +158,7 @@ else
         echo "AKS cluster credentials retrieved successfully!"
     fi
 
-    git clone https://github.com/47deg/devops_interview_labs.git #https://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@github.com/tiacloudconsult/completed-aks-cluster.git 
-    cd devops_interview_labs
-    git checkout main
+    git clone https://github.com/47deg/devops_interview_labs.git
     git fetch
     git pull
     git config --global user.email "francis.poku@tiacloud.io"
