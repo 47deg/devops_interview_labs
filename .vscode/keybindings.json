@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+alt+b",
+        "command": "workbench.action.closeSidebar",
+        "when": "sideBarVisible"
+    }
+    // {
+    //     "key": "ctrl+alt+b",               // whatever keybinding you want
+    //     "command": "workbench.action.toggleSidebarVisibility",
+    //     "when": "sideBarVisible"
+    // }
+]

@@ -9,7 +9,7 @@ data:
   .dockerconfigjson: <>
 kind: Secret
 metadata:
-  name: acrcred-dev
+  name: <secret_name>
   namespace: xebia-labs
 type: kubernetes.io/dockerconfigjson
 ---
@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: xebia-labs-{{ username }}
-        image: tiacloudconregdev.azurecr.io/vm-images/codeserver-tia-labs:v1.0.1
+        image: <image:tag>
         command: ["/bin/bash", "-c"]
         args:
           - |
@@ -50,11 +50,11 @@ spec:
           mountPath: /home/coder/.config/code-server
           readOnly: true
       imagePullSecrets:
-      -  name: acrcred-dev
+      -  name: <secret_name>
       volumes:
 #      - name: data-volume
 #        persistentVolumeClaim:
-#          claimName: pvc-tia-courses
+#          claimName: <pvc_name>
       - name: config
         configMap:
           name: xebia-labs-{{ username }}-cm
@@ -71,7 +71,7 @@ spec:
       targetPort: 8080
   selector:
     app: xebia-labs-{{ username }}
-  type: LoadBalancer
+  type: LoadBalancer #If ingress in play then this should be type: 'ClusterIP'
 #---
 
 #apiVersion: networking.k8s.io/v1
@@ -83,7 +83,7 @@ spec:
 #    kubernetes.io/ingress.class: "kong"
 #spec:
 #  rules:
-#  - host: {{ username }}.xebia-labs.kong.dev.tiacloud.io
+#  - host: {{ username }}.xebia-labs.xebia.com
 #    http:
 #      paths:
 #      - path: /
@@ -94,6 +94,7 @@ spec:
 #            port:
 #              number: 4545
 
+# This Config Map handles the passwd to login into the Lab. Path of passwd config file is '/home/coder/.config/code-server'
 ---
 apiVersion: v1
 data:

@@ -1,0 +1,32 @@
+
+
+// {
+//     "editor.wordWrap": "off",
+//     "editor.minimap.enabled": false,
+//     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+//     "workbench.colorTheme": "Default Dark+",
+//     "workbench.activityBar.visible": false,
+//     "workbench.statusBar.visible": false,
+//     "workbench.sideBar.location": "left",
+//     "terminal.integrated.defaultLocation": "editor",
+//     "terminal.integrated.defaultProfile.linux": "bash",
+//     "explorer.enableDrives": false,
+//     "explorer.confirmDelete": false,
+//     "explorer.confirmDragAndDrop": false,
+//     "explorer.confirmDragAndDropMultiple": false,
+//     "explorer.openEditors.visible": 0,
+//     "explorer.autoReveal": false,
+//     "workbench.panel.opensMaximized": "always",
+// }
+
+{
+    "workbench.statusBar.visible": true,
+    "workbench.tips.enabled": false,
+    "workbench.colorTheme": "Solarized Dark",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontSize": 16,
+    "editor.fontFamily": "agave Nerd Font Mono",
+    "editor.suggest.showStatusBar": false,
+    "terminal.integrated.defaultProfile.*": "bash"
+}
+  
