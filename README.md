@@ -1,5 +1,22 @@
 # Xebia Devops_interview_labs
 
+Project status at <2023-09-25 Mon>
+
+``` shell
+% tree
+.
+├── Dockerfile
+├── README.md
+├── create_lab.sh
+├── delete_lab.sh
+├── lab_yaml_files
+│   └── README.md
+├── manuel-notes
+│   └── README.org
+└── templates
+    └── lab.j2
+```
+
 ```sh
 
 Docker
