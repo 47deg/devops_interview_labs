@@ -18,5 +18,3 @@ Kubernetes
 # PVC mount is optional. If you want to persist the work (files) that the end user works on, then use PVC to store in i.e. Azure Blob storage. If not, git is enabled, so end user can pull from a designated repo.
 # ConfigMap overides code-server's default password. This allows us to control the generation of the passwd.
 # Service - use type: "ClusterIP" if ingress is involved. If not, the application can be exposed via "type: LoadBalancer" which is currently being done. However, I've hashed out the configurations for ingress if required. Just change the annotation 'kubernetes.io/ingress.class: "kong"' for whatever ingress-controller you maybe using.
-
-Good luck Mesa. 
