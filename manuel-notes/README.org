@@ -29,3 +29,5 @@ Surely tiacloudinfo Container Registry in Docker Hub needs to be replicated with
 
 ** Partial automation in place
 There is `create_lab.sh` and `delete_lab.sh` in place to automate labs management. These are the scripts that need update be used with GCP instead of Azure.
+
+** How can I run the docker image?
