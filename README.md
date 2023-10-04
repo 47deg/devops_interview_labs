@@ -34,7 +34,6 @@ docker compose up --build
 On a separate terminal
 
 ``` sh
-docker compose exec sh
-./dind/entrypoint.sh
+docker compose exec matryoshka sh ./dind/entrypoint.sh
 ```
 
