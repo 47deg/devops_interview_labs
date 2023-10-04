@@ -16,4 +16,4 @@ WORKDIR xflab
 COPY dind/ dind/
 COPY coder/ coder/
 
-ENTRYPOINT ["dind/entrypoint.sh"]
+# ENTRYPOINT ["dind/entrypoint.sh"]

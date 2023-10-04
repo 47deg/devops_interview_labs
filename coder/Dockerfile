@@ -9,5 +9,7 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
     chmod +x kubectl && \
     mv kubectl /usr/local/bin/
 
+WORKDIR candidate
+
 # CMD ["code-server", "--bind-addr", "0.0.0.0:5801", "--password", "1234"]
 CMD ["code-server", "--bind-addr", "0.0.0.0:5801"]

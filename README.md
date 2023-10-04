@@ -22,3 +22,19 @@
 ``` sh
 docker compose up --build
 ```
+
+### Not there yet
+This section will be removed when everything is automated.
+Entrypoint from dind collides with the entrypoint defined for the project.
+
+``` sh
+docker compose up --build
+```
+
+On a separate terminal
+
+``` sh
+docker compose exec sh
+./dind/entrypoint.sh
+```
+
