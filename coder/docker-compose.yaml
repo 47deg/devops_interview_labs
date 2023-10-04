@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  coder:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: coder
+    ports:
+      - "5801:5801"
+    networks:
+      - kind
+
+networks:
+  kind:
+    external: true

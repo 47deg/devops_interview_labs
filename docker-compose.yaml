@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  matryoshka:
+    build:
+      context: .
+      dockerfile: ./dind/Dockerfile
+    container_name: matryoshka
+    ports:
+      - "5801:5801"
+    privileged: true
