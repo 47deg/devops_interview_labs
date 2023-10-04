@@ -40,3 +40,6 @@ On a separate terminal
 docker compose exec matryoshka sh ./dind/entrypoint.sh
 ```
 
+Then you should be able to open a browser on http://0.0.0.0:5801 and see your coding environment ready.
+You can find the password on the terminal.
+Once `exec` command finish it displays the password.
