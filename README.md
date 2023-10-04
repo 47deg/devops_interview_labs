@@ -9,12 +9,15 @@
 ├── coder
 │   ├── Dockerfile
 │   ├── docker-compose.yaml
-│   └── entrypoint.sh
+│   └── load-kubeconfig.sh
 ├── dind
 │   ├── Dockerfile
 │   ├── entrypoint.sh
-│   └── prepare-kubeconfig.sh
-└── docker-compose.yaml
+│   ├── prepare-kubeconfig.sh
+│   └── wait-for-docker.sh
+├── docker-compose.yaml
+└── exercises
+    └── 00-welcome.lab
 ```
 
 ## Run it locally
