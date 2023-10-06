@@ -1,6 +1,6 @@
 FROM docker:dind
 
-RUN apk add curl parallel
+RUN apk add curl
 
 # Install Kind
 RUN curl -Lo /usr/local/bin/kind https://kind.sigs.k8s.io/dl/v0.18.0/kind-linux-amd64 && \
