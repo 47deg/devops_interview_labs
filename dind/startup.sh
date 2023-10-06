@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+./dind/wait-for-docker.sh
+
 kind create cluster --name ko-k8s-cluster --image=kindest/node:v1.26.6 --wait 50s
 
 kubectl cluster-info --context kind-ko-k8s-cluster

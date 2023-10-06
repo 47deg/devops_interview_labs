@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
-/usr/local/bin/dockerd-entrypoint.sh &
+# parallel ::: "/usr/local/bin/dockerd-entrypoint.sh" "./dind/startup.sh"
 
-./dind/wait-for-docker.sh
-
-./dind/startup.sh
+./dind/startup.sh &
+/usr/local/bin/dockerd-entrypoint.sh
