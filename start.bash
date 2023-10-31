@@ -2,7 +2,7 @@
 
 ./create-vm-from-image.bash
 
-echo 'wait 7 ...' && sleep 7
+echo 'wait for SSH daemon to start ...' && sleep 10
 
 ./through-ssh-start-lab.bash
 
