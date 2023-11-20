@@ -11,10 +11,10 @@ your experience with the Xebia DevOps Interview Labs and make the most out of
 this valuable resource for DevOps learning and practice.
 
 ## Tutorial list
-[Running Labs in Xebia DevOps Interview Labs](../001-running-labs.md)
+[Running Labs in Xebia DevOps Interview Labs](./001-running-labs.md)
 
-[Tearing Down Labs on GCP in Xebia DevOps Interview Labs](../002-tearing-down.md)
+[Tearing Down Labs on GCP in Xebia DevOps Interview Labs](./002-tearing-down.md)
 
-[Creating New Labs in Xebia DevOps Interview Labs](../003-create-new-labs.md)
+[Creating New Labs in Xebia DevOps Interview Labs](./003-create-new-labs.md)
 
-[Modifying Labs with New Requirements in Xebia DevOps Interview Labs](../004-new-requirements.md)
+[Modifying Labs with New Requirements in Xebia DevOps Interview Labs](./004-new-requirements.md)
