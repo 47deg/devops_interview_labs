@@ -46,10 +46,10 @@ password is displayed on the terminal.
 This project uses a specific naming convention for its labs when deployed on
 Google Cloud Platform (GCP). The convention is as follows:
 
-- **Prefix**: All lab instances are prefixed with xf-lab.
+- **Prefix**: All lab instances are prefixed with `xf-lab`.
 - **Purpose**: This naming ensures easy identification and management of lab
   resources within GCP.
-- **Script Compatibility**: The delete-xf-labs.bash script relies on this naming
+- **Script Compatibility**: The `delete-xf-labs.bash` script relies on this naming
   convention to identify and delete only the relevant lab VMs, avoiding
   interference with other resources.
 
