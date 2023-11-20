@@ -47,7 +47,7 @@ Contributions to enhance or extend lab exercises are welcome. Please follow the
 standard GitHub pull request process.
 
 ## License
-This project is open-sourced under the MIT License.
+This project is open-sourced under the Apache License.
 
 ## Contact
 For questions or feedback, please open an issue in the GitHub repository.
