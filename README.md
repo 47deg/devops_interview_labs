@@ -23,12 +23,14 @@ cd devops_interview_labs
 ## Project Structure
 The project consists of several key directories:
 
-: `coder`
-Contains Dockerfiles and scripts for setting up the coding environment.
-: `dind`
-Docker in Docker related files.
-: `exercises`
-Lab exercises for hands-on practice.
+`coder`
+: Contains Dockerfiles and scripts for setting up the coding environment.
+
+`dind`
+: Docker in Docker related files.
+
+`exercises`
+: Lab exercises for hands-on practice.
 
 ## Running the Labs
 To start the labs, run:
