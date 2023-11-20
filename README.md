@@ -1,4 +1,5 @@
 # Xebia DevOps Interview Labs
+
 ## Overview
 This project is designed for DevOps interview preparation, offering hands-on
 labs and exercises. It's a collection of Docker and Kubernetes-based tasks to
@@ -18,7 +19,6 @@ git clone https://github.com/47deg/devops_interview_labs.git
 ``` sh
 cd devops_interview_labs
 ```
-
 
 ## Project Structure
 The project consists of several key directories:
